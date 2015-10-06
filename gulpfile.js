@@ -9,8 +9,17 @@ var PathTo = {
   PublicCssFiles: './public/styles/*.css'
 };
 
+gulp.task('public-server', function (){
+  connect.server({
+    root: './public',
+    port: 8080,
+    livereload: true
+  });
+});
+
 gulp.task('watch-files', function (){
   gulp.watch(PathTo.SassFiles, ['compile-sass']);
+  gulp.watch('./public/index.html', ['html']);
   gulp.watch(PathTo.PublicCssFiles, ['html']);
 });
 
@@ -24,14 +33,6 @@ gulp.task('compile-sass', function (){
 gulp.task('html', function (){
   return gulp.src('./public/index.html')
     .pipe(connect.reload());
-});
-
-gulp.task('public-server', function (){
-  connect.server({
-    root: './public',
-    port: 8080,
-    livereload: true
-  });
 });
 
 gulp.task('default', ['public-server', 'compile-sass', 'watch-files']);

@@ -1,19 +1,29 @@
-@import 'partials/settings';     // settings must be before all JS files, which are linked to by "foundation"
+// @import 'partials/settings';     // settings must be before all JS files, which are linked to by "foundation"
 @import 'partials/clearfix';
-@import 'foundation';
+@import '../bower_components/foundation/scss/foundation';
 
 @import "https://fonts.googleapis.com/css?family=Lato-Regular:400,400italic,700.css";
 @import "https://fonts.googleapis.com/css?family=Oswald-Regular:400,400italic,700.css";
-$phone: 'only screen and (max-width: 500px)';
-$desktop: 'only screen and (min-width: 1000px)';
-$tablet: 'only screen and (min-width: 500px) and (max-width: 1000px)';
+$phone: 'only screen and (max-width: 400px)';
+$desktop: 'only screen and (min-width: 800px)';
+$tablet: 'only screen and (min-width: 400px) and (max-width: 800px)';
 
 html, body {
   height: 100%;
+  @media #{$desktop} {
+    width: 100%;
+  }
+  @media #{$tablet} {
+    width: 800px;
+  }
+  @media #{$phone} {
+    width: 400px;
+  }
 }
 
 body {
-  background: url('assets/bg.jpg') cover red;
+  background-image: url('assets/bg.jpg');
+  background-color: red;
 }
 
 .hidden {
@@ -22,53 +32,87 @@ body {
 
 .header {
   text-align: center;
-  padding: 16px;
-}
-
-#logo {
-  float: right;
+  height: 60px;
+  margin: 32px auto 0 auto;
 }
 
 #header-image {
-  background: url("assets/header_bg.svg") cover white;
-  width: 410px;
-  height: 10px;
+  position: relative;
+  display: inline-block;
+  background-image: url("assets/header_bg.svg");
+  background-repeat: no-repeat;
+  width: 360px;
+  height: 60px;
+}
+
+#logo-image {
+  width: 120px;
+  height: 60px;
+  bottom: 20px;
+  right: 104px;
+  position: absolute;
+  display: inline-block;
+  background-image: url("assets/logo.svg");
+}
+
+.navlinks {
+  display: inline-block;
+}
+
+.navlinks > dd > a {
+  @media #{$phone} {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 80%;
+  }
 }
 
 .links, .footer {
   background-color: black;
   text-align: center;
+  height: 40px;
   padding: 8px;
+}
+
+.footer-image {
+  margin-bottom: 8px;
+}
+
+.col-width {
+  @media #{$tablet} {
+    width: 50%;
+  }
 }
 
 .box {
   background-color: white;
   text-align: center;
-  width: 400px;
-  height: 600px;
-}
+  width: 100%;
+  margin: 24px auto;
+  border: 1px solid black;
+} // 400px total width;
 
 .box-pic {
-  background: url("assets/logo.svg") cover white;
+  width: 100%;
+  height: 200px;
+  padding: 25px;
   box-sizing: border-box;
-  width: 400px;
-  height: 300px;
-  padding: 24px;
-}
+} /* 3/2 image ratio, 350px total width; */
 
 .box-title {
   font: Lato Regular larger;
-  padding: 0 24px;
+  box-sizing: border-box;
+  padding: 0 25px;
 }
 
 .box-subtitle {
   font: Oswald Regular smaller;
-  padding: 8px 24px 16px 24px;
+  padding: 8px 25px 16px 25px;
+  box-sizing: border-box;
 }
 
 .box-text {
   box-sizing: border-box;
-  width: 400px;
-  height: 150px;
   padding: 0 24px;
+  border: 1px solid black;
 }
