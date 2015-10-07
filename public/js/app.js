@@ -38,4 +38,5 @@ $(function() {
     getData('/api/get_app.json');
   });
   getData('/api/my_boards.json');
+  $(document).foundation('equalizer', 'reflow');
 });
