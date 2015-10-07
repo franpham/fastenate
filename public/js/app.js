@@ -4,22 +4,24 @@
 
 var CELLCOUNT = 4;
 var TEXTS = [];
-TEXTS[0] = "Funny & Cute Animals Compilation 2014 New, Hilarious Animals Compilation 2014, Fun,funny, hilarious dogs,horses,goat, cats, ...";
+TEXTS[0] = "Funny & Cute Animals Compilation 2014 New, Hilarious Animals Compilation: Funny, cats, ...";
 TEXTS[1] = "PLEASE LIKE, COMMENT & SHARE - Thank you for your support! New Compilations of Fails and more every week in best...";
-TEXTS[2] = "Most people think that animals just hate taking bath, but this super cute compilation will prove them wrong. These animals...";
-TEXTS[3] = "It's so cute and funny when one animal wants to play with another who is tired and sleepy. Some sleepy animals are very patient ...";
+TEXTS[2] = "It's so cute and funny when one animal wants to play with another who is tired and sleepy. Some sleepy animals are very patient ...";
+TEXTS[3] = "Most people think that animals just hate taking bath, but this super cute compilation ...";
 
 function getData(url) {
   $.get(url, function(obj) {
     var list = obj.data.children;
     for (var i = 0; i < CELLCOUNT; i++) {
-      $('.box-pic').css('background-image',
+      $($('.box-pic')[i]).css('background-image',
         'url("' + list[i].data.thumbnail + '")');
-      $('.box-title').text(list[i].data.title);
-      $('.box-subtitle').text('by ' + list[i].data.author +
-        '&bull;' + (new Date(list[i].data.created_utc)).toString() +
-        '&bull;' + list[i].data.score + ' views');
-      $('.box-text').text(TEXTS[i]);
+      $($('.box-title')[i]).text(list[i].data.title);
+      var date = new Date(Number(list[i].data.created_utc) * 1000);
+      $($('.box-subtitle')[i]).html('by ' + list[i].data.author +
+        ' &bull; ' + date.toLocaleDateString() + ', ' + date.toLocaleTimeString() +
+        ' &bull; ' + list[i].data.score + ' views');
+      $($('.box-text')[i]).text(TEXTS[i]);
+      $($('a.hidden')[i]).prop('href', list[i].data.url);
     }
   });
 }
