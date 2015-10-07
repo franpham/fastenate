@@ -5793,16 +5793,6 @@ th.hide-for-touch {
   .show-for-print {
     display: none !important; } }
 
-@media only screen and (min-width: 800px) {
-  html, body {
-    width: 100%; } }
-@media only screen and (min-width: 400px) and (max-width: 800px) {
-  html, body {
-    width: 800px; } }
-@media only screen and (max-width: 400px) {
-  html, body {
-    width: 400px; } }
-
 body {
   background-image: url('assets/bg.jpg');
   background-color: red; }
@@ -5814,6 +5804,7 @@ body {
 
 #header-image {
   position: relative;
+  right: 20px;
   display: inline-block;
   background-image: url("assets/header_bg.svg");
   background-repeat: no-repeat;
@@ -5824,7 +5815,7 @@ body {
   width: 120px;
   height: 60px;
   bottom: 20px;
-  right: 100px;
+  right: 110px;
   position: absolute;
   display: inline-block;
   background-image: url("assets/logo.svg"); }
@@ -5835,11 +5826,15 @@ body {
 .navlinks {
   display: inline-block; }
 
-@media only screen and (max-width: 400px) {
-  .navlinks > dd > a {
-    padding-left: 8px;
-    padding-right: 8px;
-    font-size: 80%; } }
+.navlinks > dd > a:hover {
+  color: red; }
+
+.navlinks > dd > a {
+  padding: 8px;
+  font-size: 90%; }
+  @media only screen and (max-width: 400px) {
+    .navlinks > dd > a {
+      font-size: 70%; } }
 
 .links, .footer {
   background-color: black;
@@ -5854,10 +5849,12 @@ body {
   .col-width {
     width: 50%; } }
 
+.box:hover {
+  border: 2px solid yellow; }
+
 .box {
   background-color: white;
   text-align: center;
-  width: 100%;
   margin: 24px auto;
   border: 1px solid black; }
 
@@ -5865,7 +5862,6 @@ body {
   margin: 16px; }
 
 .box-pic {
-  width: 100%;
   height: 200px;
   background-size: cover;
   background-repeat: no-repeat;
