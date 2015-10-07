@@ -5809,9 +5809,6 @@ body {
   background-image: url('assets/bg.jpg');
   background-color: red; }
 
-.hidden {
-  display: none; }
-
 .header {
   text-align: center;
   height: 60px;
@@ -5833,6 +5830,9 @@ body {
   position: absolute;
   display: inline-block;
   background-image: url("assets/logo.svg"); }
+
+.hidden {
+  display: none; }
 
 .navlinks {
   display: inline-block; }

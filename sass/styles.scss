@@ -26,10 +26,6 @@ body {
   background-color: red;
 }
 
-.hidden {
-  display: none;
-}
-
 .header {
   text-align: center;
   height: 60px;
@@ -55,10 +51,17 @@ body {
   background-image: url("assets/logo.svg");
 }
 
+// needed to hide background image links, which are included for DOM SEO;
+.hidden {
+  display: none;
+}
+
+// needed since Foundation's sub-nav is a block;
 .navlinks {
   display: inline-block;
 }
 
+// needed to reduce padding and font-size for phones;
 .navlinks > dd > a {
   @media #{$phone} {
     padding-left: 8px;
@@ -74,10 +77,12 @@ body {
   padding: 8px;
 }
 
+// needed since img are replaced elements;
 .footer-image {
   margin-bottom: 8px;
 }
 
+// col-width is needed for tablet size to show multi-columns;
 .col-width {
   @media #{$tablet} {
     width: 50%;
