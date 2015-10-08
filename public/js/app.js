@@ -30,12 +30,15 @@ function getData(url) {
 $(function() {
   $('#random').on('click', function() {
     getData('/api/random.json');
+    $(document).foundation('equalizer', 'reflow');
   });
   $('#myboards').on('click', function() {
     getData('/api/my_boards.json');
+    $(document).foundation('equalizer', 'reflow');
   });
   $('#getapp').on('click', function() {
     getData('/api/get_app.json');
+    $(document).foundation('equalizer', 'reflow');
   });
   getData('/api/my_boards.json');
   $(document).foundation('equalizer', 'reflow');
